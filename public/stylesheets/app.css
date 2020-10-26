@@ -1,0 +1,144 @@
+:root {
+    --main-font-color: #072366;
+    --main-background-color: #ff3514;
+}
+/* ----------------------------------- NAVBAR ---------------------------------------- */
+.navbar-brand {
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.navbar-light .navbar-brand:hover{
+    color: var(--main-font-color);
+}
+
+.navbar-light .navbar-brand, .navbar .navbar-nav .nav-link{
+    color: var(--main-font-color);
+}
+
+.navbar .navbar-nav .nav-link{
+    font-size: 1.5rem;
+}   
+
+.navbar .navbar-nav .nav-link:hover{
+    color: var(--main-background-color);
+}   
+
+/* ----------------------------------- BLOG INDEX ---------------------------------------- */
+
+.blog-index-page{
+    font-family: 'Arima Madurai', cursive;
+}
+
+.blog-index-page .main-header {
+    height: 450px;
+    background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 120px 0;
+    text-shadow: 1px 1px 5px var(--main-font-color);
+    color: #ffffff;
+}
+
+.blog-index-page .header-text h1 {
+    font-size: 80px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.blog-index-page .header-text img{
+    margin: 12px 0;
+}
+
+.blog-index-page .header-text p {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.blog-index-page .header-text a{
+    font-family: sans-serif;
+    background-color: var(--main-font-color);
+    padding: 10px 20px;
+    border-radius: 0;
+}
+
+.blog-index-page .header-text a:hover{
+    color: white;
+    background-color: var(--main-background-color);
+}
+
+.blog-index-page .posts-section hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.blog-index-page .post-item a{
+    text-decoration: none;
+    color: var(--main-font-color);
+    transition: all .2s;
+}
+
+.blog-index-page .post-item .post-title{
+    font-size: 2.6rem;
+    margin: 30px 0 10px 0;
+}
+
+.blog-index-page .post-item .post-desc{
+    font-size: 2rem;
+    margin: 0 0 10px;
+    font-weight: 200;
+    color: black;
+}
+
+.blog-index-page .post-item a:hover{
+    color: var(--main-background-color);
+}
+
+.blog-index-page .post-item .post-meta{
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0 0 30px 0;
+}
+
+/* ----------------------------------- USER SHOW ---------------------------------------- */
+
+.profile-page .user{
+    font-family: 'Arima Madurai', cursive;
+}
+
+.profile-page .user .main-detail .profession h1, .user .sec-detail h2{
+    font-size: 1.3rem;
+}
+
+.profile-page .post .username, .profile-page .post .post-response span{
+    color: var(--main-background-color);
+}
+
+.user-blog-image{
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* ----------------------------------- FOOTER ---------------------------------------- */
+
+#footer{
+    background-color: var(--main-font-color);
+}
+
+#footer i{
+    color: red;
+}
+
+#footer a{
+    font-family: 'Arima Madurai', cursive;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+}
+

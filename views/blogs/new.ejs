@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+
+<div class="container py-4">
+    <h1 class="display-5">
+        Create A New Blog
+    </h1>
+    <div id="form" class="border p-4 mt-4">
+        <form action="/blogs" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="blog[title]" placeholder="Title" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="blog[image]" placeholder="Image" required>
+            </div>
+            <div class="form-group">
+                <textarea name="blog[content]" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <a href="/blogs" class="btn btn-success">Back</a>
+</div>
+
+<%- include("../partials/footer") %>

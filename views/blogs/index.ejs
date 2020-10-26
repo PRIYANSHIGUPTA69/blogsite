@@ -1,0 +1,43 @@
+<%- include("../partials/header") %>
+
+<section class="blog-index-page">
+
+    <section class="main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="header-text">
+                        <h1>BlogAdda</h1>
+                        <img src="/images/icon.png" alt="error">
+                        <p>The world of blog posts is here</p>
+                        <a href="/blogs/new" class="btn mt-1 text-white">ADD BLOG</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="posts-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <% blogs.forEach(function(blog){  %>
+                        <div class="post-item">
+                            <a href="/blogs/<%=blog._id%>">
+                                <h2 class="post-title"><%= blog.title %></h2>
+                                <h3 class="post-desc"><%- blog.content %></h3>
+                            </a>
+                            <p class="text-muted post-meta">
+                                Posted by <a href="/users/<%=blog.creator.userId%>"><%= blog.creator.username %></a> on <%= blog.created.toDateString() %>
+                            </p>
+                        </div>
+                        <hr>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+</section>
+
+<%- include("../partials/footer") %>

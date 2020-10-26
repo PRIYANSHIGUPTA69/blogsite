@@ -1,0 +1,72 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-7 mx-auto">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="font-weight-light"><%= blog.title %></h1>
+                </div>
+                <!-- CHECKING BLOGOWNERSHIP -->
+                <% if(currentUser && blog.creator.userId.equals(currentUser._id)){ %>
+                    <div class="d-flex">
+                            <a href="/blogs/<%=blog._id%>/edit" class="btn"><i class="far fa-edit"></i></a>
+                            <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                                <button class="btn"><i class="far fa-trash-alt"></i></button>
+                            </form>
+                    </div>
+                <% } %>
+            </div>
+            <p class="lead text-primary"><%= blog.creator.username %>
+                <span class="text-muted"><%= blog.created.toDateString() %></span></p>
+            <img style="width:100%" src="<%=blog.image%>" alt="error">
+            <p class="lead"><%- blog.content %></p>
+            <br>
+            <!-- COMMENTS -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <!-- CHECKING LOGIN -->
+                    <% if(currentUser){ %>
+                        <% if(blog.likes.includes(currentUser._id)){ %>
+                            <i style="color: red;" onclick="likeButtonHandler('<%=blog._id%>')" class="far fa-heart heart-icon"></i>
+                        <% }else{ %>
+                            <i onclick="likeButtonHandler('<%=blog._id%>')" class="far fa-heart heart-icon"></i>
+                        <% } %>
+                        <span class="likeDisplayRegion"> <%=blog.likes.length%></span>
+                    <% }else{ %>
+                        <i class="far fa-heart"></i> <%=blog.likes.length%>
+                    <% } %>
+                    <i class="far fa-comment"> <%=blog.comments.length%></i>
+                </div>
+                <a href="/blogs/<%=blog._id%>/comments/new" class="btn btn-dark">Add New Comment</a>
+            </div>
+            
+            <hr>
+            
+            <% blog.comments.forEach(function(comment){ %>
+                <div class="bg-light p-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="lead text-primary"><%= comment.creator.username %>
+                                <span class="text-muted"><%= comment.created.toDateString() %></span></p>
+                        </div>
+                        <div>
+                            <!-- CHECKING COMMENT OWNERSHIP -->
+                            <% if(currentUser && comment.creator.userId.equals(currentUser._id)){ %>
+                                <form action="/blogs/<%=blog._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-info"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            <% } %>
+                        </div>
+                    </div>
+                    <p class="text-dark"><%= comment.text %></p>
+                    <hr>
+                </div>
+            <% }); %>
+
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
+

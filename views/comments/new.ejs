@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+<div class="container py-4">
+    <h1 class="display-5">
+        Create Comment on <%=blog.title%>
+    </h1>
+    <div class="border p-4 mt-4">
+        <form action="/blogs/<%=blog._id%>/comments" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="comment[text]" placeholder="Text" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <a href="/blogs/<%=blog._id%>" class="btn btn-success">Back</a>
+</div>
+
+<%- include("../partials/footer") %>
